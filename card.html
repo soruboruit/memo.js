@@ -17,21 +17,28 @@
       margin: 5px;
       width: 300px;
     }
+    .new{
+      border: 5px solid yellow;
+    }
   </style>
 </head>
 <body>
   <button id="add">追加</button>
   <main id="main">
-    <div>aaa</div>
-    <div>bbb</div>
-    <div>ddd</div>
-    <div>eee</div>
-    <div>ccc</div>
-    <div>fff</div>
+
   </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
+    let c = 0;
+    $("#add").on("click", function(){
+      $("#main>div").removeClass("new");
+      c++;
+     const html = `
+     <div class="new">${c}</div>
+     `;
+     $("#main").append(html);
+    });
   </script>
 </body>
 </html>
