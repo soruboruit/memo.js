@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card Memo サンプル</title>
-  <style>
-    #main{
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Memo サンプル</title>
+    <style>
+      #main {
+        color: aliceblue;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      div {
+        background-color: blue;
+        margin: 5px;
+        width: 300px;
+      }
+      .new {
+        border: 5px solid yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="add">追加</button>
+    <button id="save">保存</button>
+    <main id="main"></main>
 
-      color: aliceblue;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
-    div{
-      background-color: blue;
-      margin: 5px;
-      width: 300px;
-    }
-    .new{
-      border: 5px solid yellow;
-    }
-  </style>
-</head>
-<body>
-  <button id="add">追加</button>
-  <main id="main">
-
-  </main>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script>
-    let c = 0;
-    $("#add").on("click", function(){
-      $("#main>div").removeClass("new");
-      c++;
-     const html = `
-     <div class="new">${c}</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      let c = 0;
+      $("#add").on("click", function () {
+        $("#main>div").removeClass("new");
+        c++;
+        const html = `
+     <div class="new">${c}<textarea id="add_${c}"></div>
      `;
-     $("#main").append(html);
-    });
-  </script>
-</body>
+        $("#main").append(html);
+      });
+      $("save").on("click", function () {
+        const len = $(".memo").length;
+        let ary = [];
+        for (let i=0; i<len; i++) {
+          ary[i] = $("#add_" + i).val();
+        }
+        console.log(ary);
+        
+        
+      });
+    </script>
+  </body>
 </html>
