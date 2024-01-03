@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Memo サンプル</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
 body {
   font-family: 'Georgia', serif;
   background-color: #f0f0f0; /* クリーム色の背景 */
+  margin: 0; /* ページのマージンをリセット */
+  overflow-x: hidden; /* 横スクロールを非表示にする */
 }
 
   #main {
@@ -15,13 +18,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    overflow-x: auto; /* 横スクロールを表示する */
+    padding-bottom: 20px; /* カードの下に余白を追加 */
   }
 
   div {
   background-color: #334455;
   color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 70%;
+  width: calc(70% - 40px); /* カードの幅を調整 */
   min-width: 300px;
   max-width: 600px;
   height: 400px;
@@ -30,9 +35,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start; /* テキストを左寄せに変更 */
-  text-align: left; /* テキストを左寄せに変更 */
+  align-items: flex-start;
+  text-align: left;
   padding: 20px;
+  margin-right: 20px; /* カード間の右マージンを追加 */
 }
 
 textarea {
@@ -68,8 +74,9 @@ button {
   background-color: #334455;
   color: #ffffff;
 }
+</style>
 
-    </style>
+
   </head>
   <body>
     <button id="add"><i class="fas fa-plus"></i> 追加</button>
@@ -91,9 +98,6 @@ $("#add").on("click", function () {
   $("#main").append(html);
   $(`#add_${c}`).focus(); // 追加されたメモにフォーカスを移動
 });
-
-// 以下略...
-
 
       $("#save").on("click",function () {
         const len = $(".memo").length;
