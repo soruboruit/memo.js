@@ -29,8 +29,8 @@ body {
   color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: calc(35% - 40px); /* 左右と同じ幅で上下にも追加 */
-  min-width: 300px;
-  max-width: 600px;
+  min-width: auto;
+  max-width: 1400px;
   height: 400px;
   max-height: 80vh;
   border-radius: 10px;
@@ -66,7 +66,7 @@ button {
   background-color: #334455;
 }
 
-div:hover {
+button:hover {
   transition: transform 0.3s ease-in-out;
   transform: scale(1.05);
 }
@@ -94,14 +94,14 @@ div:hover {
   width: 100%;
   height: 35px;
   padding: 10px;
-  background-color: #31a9ee;
-  color: #000;
-  border-bottom: 3px solid #006DD9;
+  background-color: #5a789f; /* 落ち着いた青灰色に変更 */
+  color: #fff;
+  border-bottom: 3px solid #778899; /* ボーダー色も調整 */
   box-shadow: 0 7px 10px 2px #aaaaaa;
-  display: flex; /* フレックスコンテナにする */
-  justify-content: space-between; /* 要素を横に配置 */
-  align-items: center; /* 垂直方向の中央寄せ */
-  flex-direction: row; /* 要素を横に配置 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
 
 #add {
