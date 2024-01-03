@@ -5,26 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Memo サンプル</title>
     <style>
-      #main {
-        color: aliceblue;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-      }
-      div {
-        background-color: blue;
-        margin: 5px;
-        width: 300px;
-      }
-      .new {
-        border: 5px solid rgb(255, 255, 124);
-      }
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f0f0f0; /* クリーム色の背景 */
+}
+
+  #main {
+    color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  div {
+    background-color: #334455; /* 深い青のカード */
+    color: #ffffff; /* 白いテキスト */
+    width: 350px;
+    height: 200px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  div:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .new {
+    border: 5px solid rgb(255, 255, 124);
+    animation: fadeInUp 0.5s ease;
+  }
+
+      @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+button {
+  border-radius: 5px; /* 角の丸みを持たせる */
+  background-color: #334455;
+  color: #ffffff;
+}
+
     </style>
   </head>
   <body>
-    <button id="add">追加</button>
-    <button id="save">保存</button>
-    <button id="clear">削除</button>
+    <button id="add"><i class="fas fa-plus"></i> 追加</button>
+    <button id="save"><i class="fas fa-save"></i> 保存</button>
+    <button id="clear"><i class="fas fa-trash-alt"></i> 削除</button>
+    
     <main id="main"></main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
