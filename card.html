@@ -49,6 +49,7 @@
       });
 
       $("#clear").on("click",function(){
+        if (!confirm('本当に消去しますか？')) return false;
         localStorage.clear();
         $("#main").empty();
         c=0;
