@@ -17,16 +17,18 @@ body {
     color: aliceblue;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center; /* 左右中央に寄せる */
+    align-items: flex-start; /* 上部に寄せる */
     overflow-x: auto; /* 横スクロールを表示する */
     padding-bottom: 20px; /* カードの下に余白を追加 */
+    margin-top: 20px;
   }
 
   div {
   background-color: #334455;
   color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: calc(70% - 40px); /* カードの幅を調整 */
+  width: calc(35% - 40px); /* 左右と同じ幅で上下にも追加 */
   min-width: 300px;
   max-width: 600px;
   height: 400px;
@@ -38,7 +40,7 @@ body {
   align-items: flex-start;
   text-align: left;
   padding: 20px;
-  margin-right: 20px; /* カード間の右マージンを追加 */
+  margin: 20px; /* カード同士のマージンを追加 */
 }
 
 textarea {
@@ -48,6 +50,21 @@ textarea {
   resize: none;
 }
 
+/* 追加ボタンが右端に配置されるように調整 */
+#add {
+  margin-left: auto;
+}
+
+/* 上部のボタンスタイルの微調整 */
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  color: #ffffff;
+  background-color: #334455;
+}
 
   div:hover {
     transform: scale(1.05);
@@ -74,15 +91,29 @@ button {
   background-color: #334455;
   color: #ffffff;
 }
+
+.header {
+position: fixed; /* ヘッダーを固定する */
+top: 0; /* 上部から配置の基準位置を決める */
+left: 0; /* 左から配置の基準位置を決める */
+width: 100%; /* ヘッダーの横幅を指定する */
+height: 35px; /* ヘッダーの高さを指定する */
+padding: 10px; /* ヘッダー内側の余白を指定する(上下左右) */
+background-color: #31a9ee; /* ヘッダーの背景色を指定する */
+color: #000; /* ヘッダーのフォントの色を指定する */
+border-bottom: 3px solid #006DD9; /* ヘッダーの境界線（下部）を指定する */
+box-shadow:0 7px 10px 2px #aaaaaa; /* 影を指定（[右][下][ぼかし][広がり][影の色]） */
+}
 </style>
 
 
   </head>
   <body>
+    <div class="header">
     <button id="add"><i class="fas fa-plus"></i> 追加</button>
     <button id="save"><i class="fas fa-save"></i> 保存</button>
     <button id="clear"><i class="fas fa-trash-alt"></i> 削除</button>
-    
+    </div>
     <main id="main"></main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
